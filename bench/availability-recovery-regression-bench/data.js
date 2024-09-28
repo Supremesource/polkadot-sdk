@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727441919042,
+  "lastUpdate": 1727522924228,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "availability-recovery-regression-bench": [
@@ -21859,6 +21859,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "availability-recovery",
             "value": 12.601377169900003,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "1177472+mordamax@users.noreply.github.com",
+            "name": "Maksym H",
+            "username": "mordamax"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0a569963042a205d886acaee8a7f65a53c57bf1d",
+          "message": "Update runtimes-matrix.json (#5829)\n\nJust a tiny config fix\n\nCo-authored-by: Bastian Köcher <git@kchr.de>",
+          "timestamp": "2024-09-28T09:53:55Z",
+          "tree_id": "0fc3221380c6efe8ed12e80a1254808eae4038d5",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/0a569963042a205d886acaee8a7f65a53c57bf1d"
+        },
+        "date": 1727522900472,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Received from peers",
+            "value": 307203,
+            "unit": "KiB"
+          },
+          {
+            "name": "Sent to peers",
+            "value": 1.6666666666666665,
+            "unit": "KiB"
+          },
+          {
+            "name": "availability-recovery",
+            "value": 12.808191372066668,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.24853946593333337,
             "unit": "seconds"
           }
         ]
