@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727523015634,
+  "lastUpdate": 1727544312691,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "statement-distribution-regression-bench": [
@@ -12535,6 +12535,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "statement-distribution",
             "value": 0.03820213990799999,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "37149322+ffarall@users.noreply.github.com",
+            "name": "Facundo Farall",
+            "username": "ffarall"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "df12fd34e36848a535892b1e88281faa59bf34b6",
+          "message": "Clarify firing of `import_notification_stream` in doc comment (#5811)\n\n# Description\r\n\r\nUpdates the doc comment on the `import_notification_stream` to make its\r\nbehaviour clearer.\r\n\r\nCloses [Unexpected behaviour of block\r\n`import_notification_stream`](https://github.com/paritytech/polkadot-sdk/issues/5596).\r\n\r\n## Integration\r\n\r\nDoesn't apply.\r\n\r\n## Review Notes\r\n\r\nThe old comment docs caused some confusion to myself and some members of\r\nmy team, on when this notification stream is triggered. This is\r\nreflected in the linked\r\n[issue](https://github.com/paritytech/polkadot-sdk/issues/5596), and as\r\ndiscussed there, this PR aims to prevent this confusion in future devs\r\nlooking to make use of this functionality.\r\n\r\n# Checklist\r\n\r\n* [x] My PR includes a detailed description as outlined in the\r\n\"Description\" and its two subsections above.\r\n* [ ] My PR follows the [labeling requirements](\r\n\r\nhttps://github.com/paritytech/polkadot-sdk/blob/master/docs/contributor/CONTRIBUTING.md#Process\r\n) of this project (at minimum one label for `T` required)\r\n* External contributors: ask maintainers to put the right label on your\r\nPR.\r\n* [x] I have made corresponding changes to the documentation (if\r\napplicable)\r\n* [x] I have added tests that prove my fix is effective or that my\r\nfeature works (if applicable)\r\n\r\nYou can remove the \"Checklist\" section once all have been checked. Thank\r\nyou for your contribution!\r\n\r\n---------\r\n\r\nCo-authored-by: Michal Kucharczyk <1728078+michalkucharczyk@users.noreply.github.com>\r\nCo-authored-by: Bastian Köcher <git@kchr.de>",
+          "timestamp": "2024-09-28T18:43:38+02:00",
+          "tree_id": "1bfb61f4651ab13cb574074fec4b0539e3e916f8",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/df12fd34e36848a535892b1e88281faa59bf34b6"
+        },
+        "date": 1727544288810,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sent to peers",
+            "value": 127.92799999999995,
+            "unit": "KiB"
+          },
+          {
+            "name": "Received from peers",
+            "value": 106.39999999999996,
+            "unit": "KiB"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.051164934841999965,
+            "unit": "seconds"
+          },
+          {
+            "name": "statement-distribution",
+            "value": 0.038321522654,
             "unit": "seconds"
           }
         ]
