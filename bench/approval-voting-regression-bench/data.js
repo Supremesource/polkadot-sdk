@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727522985644,
+  "lastUpdate": 1727544282396,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "approval-voting-regression-bench": [
@@ -20149,6 +20149,105 @@ window.BENCHMARK_DATA = {
           {
             "name": "approval-voting-parallel/approval-voting-parallel-0",
             "value": 3.60365380602,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "37149322+ffarall@users.noreply.github.com",
+            "name": "Facundo Farall",
+            "username": "ffarall"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "df12fd34e36848a535892b1e88281faa59bf34b6",
+          "message": "Clarify firing of `import_notification_stream` in doc comment (#5811)\n\n# Description\r\n\r\nUpdates the doc comment on the `import_notification_stream` to make its\r\nbehaviour clearer.\r\n\r\nCloses [Unexpected behaviour of block\r\n`import_notification_stream`](https://github.com/paritytech/polkadot-sdk/issues/5596).\r\n\r\n## Integration\r\n\r\nDoesn't apply.\r\n\r\n## Review Notes\r\n\r\nThe old comment docs caused some confusion to myself and some members of\r\nmy team, on when this notification stream is triggered. This is\r\nreflected in the linked\r\n[issue](https://github.com/paritytech/polkadot-sdk/issues/5596), and as\r\ndiscussed there, this PR aims to prevent this confusion in future devs\r\nlooking to make use of this functionality.\r\n\r\n# Checklist\r\n\r\n* [x] My PR includes a detailed description as outlined in the\r\n\"Description\" and its two subsections above.\r\n* [ ] My PR follows the [labeling requirements](\r\n\r\nhttps://github.com/paritytech/polkadot-sdk/blob/master/docs/contributor/CONTRIBUTING.md#Process\r\n) of this project (at minimum one label for `T` required)\r\n* External contributors: ask maintainers to put the right label on your\r\nPR.\r\n* [x] I have made corresponding changes to the documentation (if\r\napplicable)\r\n* [x] I have added tests that prove my fix is effective or that my\r\nfeature works (if applicable)\r\n\r\nYou can remove the \"Checklist\" section once all have been checked. Thank\r\nyou for your contribution!\r\n\r\n---------\r\n\r\nCo-authored-by: Michal Kucharczyk <1728078+michalkucharczyk@users.noreply.github.com>\r\nCo-authored-by: Bastian Köcher <git@kchr.de>",
+          "timestamp": "2024-09-28T18:43:38+02:00",
+          "tree_id": "1bfb61f4651ab13cb574074fec4b0539e3e916f8",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/df12fd34e36848a535892b1e88281faa59bf34b6"
+        },
+        "date": 1727544258488,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sent to peers",
+            "value": 63663.83,
+            "unit": "KiB"
+          },
+          {
+            "name": "Received from peers",
+            "value": 52943.09999999999,
+            "unit": "KiB"
+          },
+          {
+            "name": "approval-voting/test-environment",
+            "value": 0.000013689069999999999,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-gather-signatures",
+            "value": 0.004895835139999999,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-distribution",
+            "value": 0.000014172580000000002,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-2",
+            "value": 3.533125721280001,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-3",
+            "value": 3.487526758619997,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-1",
+            "value": 3.4722797288099985,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting",
+            "value": 0.000013689069999999999,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-db",
+            "value": 3.1909200356199956,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 4.110941673519666,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-distribution/test-environment",
+            "value": 0.000014172580000000002,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel",
+            "value": 17.649660729079933,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-subsystem",
+            "value": 0.3955498116299437,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-0",
+            "value": 3.5653628379800004,
             "unit": "seconds"
           }
         ]
