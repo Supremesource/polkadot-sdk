@@ -612,6 +612,13 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <a href="#462" id="462">462</a>
 <a href="#463" id="463">463</a>
 <a href="#464" id="464">464</a>
+<a href="#465" id="465">465</a>
+<a href="#466" id="466">466</a>
+<a href="#467" id="467">467</a>
+<a href="#468" id="468">468</a>
+<a href="#469" id="469">469</a>
+<a href="#470" id="470">470</a>
+<a href="#471" id="471">471</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file is part of Substrate.
 
 // Copyright (C) Parity Technologies (UK) Ltd.
@@ -679,9 +686,16 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 </span><span class="kw">pub trait </span>BlockchainEvents&lt;Block: BlockT&gt; {
 	<span class="doccomment">/// Get block import event stream.
 	///
-	/// Not guaranteed to be fired for every imported block, only fired when the node
-	/// has synced to the tip or there is a re-org. Use `every_import_notification_stream()`
-	/// if you want a notification of every imported block regardless.
+	/// Not guaranteed to be fired for every imported block. Use
+	/// `every_import_notification_stream()` if you want a notification of every imported block
+	/// regardless.
+	///
+	/// The events for this notification stream are emitted:
+	/// - During initial sync process: if there is a re-org while importing blocks. See
+	/// [here](https://github.com/paritytech/substrate/pull/7118#issuecomment-694091901) for the
+	/// rationale behind this.
+	/// - After initial sync process: on every imported block, regardless of whether it is
+	/// the new best block or not, causes a re-org or not.
 	</span><span class="kw">fn </span>import_notification_stream(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ImportNotifications&lt;Block&gt;;
 
 	<span class="doccomment">/// Get a stream of every imported block.
