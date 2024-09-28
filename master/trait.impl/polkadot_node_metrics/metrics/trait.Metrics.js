@@ -6,7 +6,7 @@
 "polkadot_network_bridge":[["impl <a class=\"trait\" href=\"polkadot_node_metrics/metrics/trait.Metrics.html\" title=\"trait polkadot_node_metrics::metrics::Metrics\">Metrics</a> for <a class=\"struct\" href=\"polkadot_network_bridge/struct.Metrics.html\" title=\"struct polkadot_network_bridge::Metrics\">Metrics</a>"]],
 "polkadot_node_core_approval_voting":[["impl Metrics for <a class=\"struct\" href=\"polkadot_node_core_approval_voting/struct.Metrics.html\" title=\"struct polkadot_node_core_approval_voting::Metrics\">Metrics</a>"]],
 "polkadot_node_core_approval_voting_parallel":[["impl Metrics for <a class=\"struct\" href=\"polkadot_node_core_approval_voting_parallel/metrics/struct.Metrics.html\" title=\"struct polkadot_node_core_approval_voting_parallel::metrics::Metrics\">Metrics</a>"]],
-"polkadot_node_core_av_store":[["impl Metrics for <a class=\"struct\" href=\"polkadot_node_core_av_store/struct.Metrics.html\" title=\"struct polkadot_node_core_av_store::Metrics\">Metrics</a>"]],
+"polkadot_node_core_av_store":[["impl <a class=\"trait\" href=\"polkadot_node_metrics/metrics/trait.Metrics.html\" title=\"trait polkadot_node_metrics::metrics::Metrics\">Metrics</a> for <a class=\"struct\" href=\"polkadot_node_core_av_store/struct.Metrics.html\" title=\"struct polkadot_node_core_av_store::Metrics\">Metrics</a>"]],
 "polkadot_node_core_provisioner":[["impl Metrics for <a class=\"struct\" href=\"polkadot_node_core_provisioner/struct.Metrics.html\" title=\"struct polkadot_node_core_provisioner::Metrics\">Metrics</a>"]],
 "polkadot_node_core_pvf":[["impl Metrics for <a class=\"struct\" href=\"polkadot_node_core_pvf/struct.Metrics.html\" title=\"struct polkadot_node_core_pvf::Metrics\">Metrics</a>"]],
 "polkadot_node_metrics":[],

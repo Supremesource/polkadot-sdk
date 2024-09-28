@@ -1349,6 +1349,19 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <a href="#1199" id="1199">1199</a>
 <a href="#1200" id="1200">1200</a>
 <a href="#1201" id="1201">1201</a>
+<a href="#1202" id="1202">1202</a>
+<a href="#1203" id="1203">1203</a>
+<a href="#1204" id="1204">1204</a>
+<a href="#1205" id="1205">1205</a>
+<a href="#1206" id="1206">1206</a>
+<a href="#1207" id="1207">1207</a>
+<a href="#1208" id="1208">1208</a>
+<a href="#1209" id="1209">1209</a>
+<a href="#1210" id="1210">1210</a>
+<a href="#1211" id="1211">1211</a>
+<a href="#1212" id="1212">1212</a>
+<a href="#1213" id="1213">1213</a>
+<a href="#1214" id="1214">1214</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file is part of Substrate.
 
 // Copyright (C) Parity Technologies (UK) Ltd.
@@ -2220,6 +2233,18 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 		<span class="comment">// We don't want to call ourselves recursively
 		</span>.env(<span class="kw">crate</span>::SKIP_BUILD_ENV, <span class="string">""</span>);
 
+	<span class="kw">let </span>cargo_args = env::var(<span class="kw">crate</span>::WASM_BUILD_CARGO_ARGS).unwrap_or_default();
+	<span class="kw">if </span>!cargo_args.is_empty() {
+		<span class="kw">let </span><span class="prelude-val">Some</span>(args) = shlex::split(<span class="kw-2">&amp;</span>cargo_args) <span class="kw">else </span>{
+			build_helper::warning(<span class="macro">format!</span>(
+				<span class="string">"the {} environment variable is not a valid shell string"</span>,
+				<span class="kw">crate</span>::WASM_BUILD_CARGO_ARGS
+			));
+			std::process::exit(<span class="number">1</span>);
+		};
+		build_cmd.args(args);
+	}
+
 	<span class="attr">#[cfg(feature = <span class="string">"metadata-hash"</span>)]
 	</span><span class="kw">if let </span><span class="prelude-val">Some</span>(hash) = metadata_hash {
 		build_cmd.env(<span class="string">"RUNTIME_METADATA_HASH"</span>, array_bytes::bytes2hex(<span class="string">"0x"</span>, <span class="kw-2">&amp;</span>hash));
@@ -2491,6 +2516,7 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 	<span class="macro">println!</span>(<span class="string">"cargo:rerun-if-env-changed={}"</span>, <span class="kw">crate</span>::WASM_BUILD_TOOLCHAIN);
 	<span class="macro">println!</span>(<span class="string">"cargo:rerun-if-env-changed={}"</span>, <span class="kw">crate</span>::WASM_BUILD_STD);
 	<span class="macro">println!</span>(<span class="string">"cargo:rerun-if-env-changed={}"</span>, <span class="kw">crate</span>::RUNTIME_TARGET);
+	<span class="macro">println!</span>(<span class="string">"cargo:rerun-if-env-changed={}"</span>, <span class="kw">crate</span>::WASM_BUILD_CARGO_ARGS);
 }
 
 <span class="doccomment">/// Track files and paths related to the given package to rerun `build.rs` on any relevant change.
