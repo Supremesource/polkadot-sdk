@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727657743587,
+  "lastUpdate": 1727698976616,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "statement-distribution-regression-bench": [
@@ -12623,6 +12623,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "test-environment",
             "value": 0.051374502098000006,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "41779041+alvicsam@users.noreply.github.com",
+            "name": "Alexander Samusev",
+            "username": "alvicsam"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "184af677481744b44f86f5881de79587ef854142",
+          "message": "[ci] Run subsystem-benchmarks on large runners (#5860)\n\ncc @AndreiEres",
+          "timestamp": "2024-09-30T11:07:50Z",
+          "tree_id": "0e35f7fc094359c1f4aa30716e3c4aaa0aea359b",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/184af677481744b44f86f5881de79587ef854142"
+        },
+        "date": 1727698952049,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sent to peers",
+            "value": 127.93799999999996,
+            "unit": "KiB"
+          },
+          {
+            "name": "Received from peers",
+            "value": 106.39999999999996,
+            "unit": "KiB"
+          },
+          {
+            "name": "statement-distribution",
+            "value": 0.035868500630000015,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.04517391300599992,
             "unit": "seconds"
           }
         ]
