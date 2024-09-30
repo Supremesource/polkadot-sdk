@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727698976616,
+  "lastUpdate": 1727706601840,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "statement-distribution-regression-bench": [
@@ -12667,6 +12667,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "test-environment",
             "value": 0.04517391300599992,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "egor@parity.io",
+            "name": "Egor_P",
+            "username": "EgorPopelyaev"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9283dc1db4bbc199b0fe3fb7da81eee98013785e",
+          "message": "[Backport] Version bumps and prdocs reordering from stable2409 (#5849)\n\nThis PR backports regular version bumps and prdocs reordering from the\n`stable2409` release branch to `master`\n\n---------\n\nCo-authored-by: Morgan Adamiec <morgan@parity.io>\nCo-authored-by: Bastian Köcher <git@kchr.de>\nCo-authored-by: Nazar Mokrynskyi <nazar@mokrynskyi.com>",
+          "timestamp": "2024-09-30T13:14:49Z",
+          "tree_id": "1f1ebc9f1c29be804ace761dc6fd6cbab3bf90f3",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/9283dc1db4bbc199b0fe3fb7da81eee98013785e"
+        },
+        "date": 1727706577310,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sent to peers",
+            "value": 127.94999999999996,
+            "unit": "KiB"
+          },
+          {
+            "name": "Received from peers",
+            "value": 106.39999999999996,
+            "unit": "KiB"
+          },
+          {
+            "name": "statement-distribution",
+            "value": 0.03563936629600001,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.04580445533399995,
             "unit": "seconds"
           }
         ]
