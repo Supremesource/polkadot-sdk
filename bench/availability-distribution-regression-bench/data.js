@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727544251890,
+  "lastUpdate": 1727657681706,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "availability-distribution-regression-bench": [
@@ -27511,6 +27511,60 @@ window.BENCHMARK_DATA = {
           {
             "name": "bitfield-distribution",
             "value": 0.024177918426666663,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "shawntabrizi@gmail.com",
+            "name": "Shawn Tabrizi",
+            "username": "shawntabrizi"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "05b5fb2bd4ba587f5c478f39eb82906691d8ab06",
+          "message": "Improve APIs for Tries in Runtime (#5756)\n\nThis is a refactor and improvement from:\nhttps://github.com/paritytech/polkadot-sdk/pull/3881\n\n- `sp_runtime::proving_trie` now exposes a `BasicProvingTrie` for both\n`base2` and `base16`.\n- APIs for `base16` are more focused on single value proofs, also\naligning their APIs with the `base2` trie\n- A `ProvingTrie` trait is included which wraps both the `base2` and\n`base16` trie, and exposes all APIs needed for an end to end scenario.\n- A `ProofToHashes` trait is exposed which can allow us to write proper\nbenchmarks for the merkle trie.\n\n---------\n\nCo-authored-by: Ankan <10196091+Ank4n@users.noreply.github.com>\nCo-authored-by: Adrian Catangiu <adrian@parity.io>",
+          "timestamp": "2024-09-29T23:20:56Z",
+          "tree_id": "dfc981e9dfc185dd58470920785ffcae1d553ea7",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/05b5fb2bd4ba587f5c478f39eb82906691d8ab06"
+        },
+        "date": 1727657657372,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sent to peers",
+            "value": 18481.666666666653,
+            "unit": "KiB"
+          },
+          {
+            "name": "Received from peers",
+            "value": 433.3333333333332,
+            "unit": "KiB"
+          },
+          {
+            "name": "availability-store",
+            "value": 0.1814964959066666,
+            "unit": "seconds"
+          },
+          {
+            "name": "bitfield-distribution",
+            "value": 0.024054882526666658,
+            "unit": "seconds"
+          },
+          {
+            "name": "availability-distribution",
+            "value": 0.014280848359999997,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.011002659260000002,
             "unit": "seconds"
           }
         ]
