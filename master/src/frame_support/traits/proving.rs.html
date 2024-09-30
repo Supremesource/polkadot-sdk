@@ -283,6 +283,100 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <a href="#133" id="133">133</a>
 <a href="#134" id="134">134</a>
 <a href="#135" id="135">135</a>
+<a href="#136" id="136">136</a>
+<a href="#137" id="137">137</a>
+<a href="#138" id="138">138</a>
+<a href="#139" id="139">139</a>
+<a href="#140" id="140">140</a>
+<a href="#141" id="141">141</a>
+<a href="#142" id="142">142</a>
+<a href="#143" id="143">143</a>
+<a href="#144" id="144">144</a>
+<a href="#145" id="145">145</a>
+<a href="#146" id="146">146</a>
+<a href="#147" id="147">147</a>
+<a href="#148" id="148">148</a>
+<a href="#149" id="149">149</a>
+<a href="#150" id="150">150</a>
+<a href="#151" id="151">151</a>
+<a href="#152" id="152">152</a>
+<a href="#153" id="153">153</a>
+<a href="#154" id="154">154</a>
+<a href="#155" id="155">155</a>
+<a href="#156" id="156">156</a>
+<a href="#157" id="157">157</a>
+<a href="#158" id="158">158</a>
+<a href="#159" id="159">159</a>
+<a href="#160" id="160">160</a>
+<a href="#161" id="161">161</a>
+<a href="#162" id="162">162</a>
+<a href="#163" id="163">163</a>
+<a href="#164" id="164">164</a>
+<a href="#165" id="165">165</a>
+<a href="#166" id="166">166</a>
+<a href="#167" id="167">167</a>
+<a href="#168" id="168">168</a>
+<a href="#169" id="169">169</a>
+<a href="#170" id="170">170</a>
+<a href="#171" id="171">171</a>
+<a href="#172" id="172">172</a>
+<a href="#173" id="173">173</a>
+<a href="#174" id="174">174</a>
+<a href="#175" id="175">175</a>
+<a href="#176" id="176">176</a>
+<a href="#177" id="177">177</a>
+<a href="#178" id="178">178</a>
+<a href="#179" id="179">179</a>
+<a href="#180" id="180">180</a>
+<a href="#181" id="181">181</a>
+<a href="#182" id="182">182</a>
+<a href="#183" id="183">183</a>
+<a href="#184" id="184">184</a>
+<a href="#185" id="185">185</a>
+<a href="#186" id="186">186</a>
+<a href="#187" id="187">187</a>
+<a href="#188" id="188">188</a>
+<a href="#189" id="189">189</a>
+<a href="#190" id="190">190</a>
+<a href="#191" id="191">191</a>
+<a href="#192" id="192">192</a>
+<a href="#193" id="193">193</a>
+<a href="#194" id="194">194</a>
+<a href="#195" id="195">195</a>
+<a href="#196" id="196">196</a>
+<a href="#197" id="197">197</a>
+<a href="#198" id="198">198</a>
+<a href="#199" id="199">199</a>
+<a href="#200" id="200">200</a>
+<a href="#201" id="201">201</a>
+<a href="#202" id="202">202</a>
+<a href="#203" id="203">203</a>
+<a href="#204" id="204">204</a>
+<a href="#205" id="205">205</a>
+<a href="#206" id="206">206</a>
+<a href="#207" id="207">207</a>
+<a href="#208" id="208">208</a>
+<a href="#209" id="209">209</a>
+<a href="#210" id="210">210</a>
+<a href="#211" id="211">211</a>
+<a href="#212" id="212">212</a>
+<a href="#213" id="213">213</a>
+<a href="#214" id="214">214</a>
+<a href="#215" id="215">215</a>
+<a href="#216" id="216">216</a>
+<a href="#217" id="217">217</a>
+<a href="#218" id="218">218</a>
+<a href="#219" id="219">219</a>
+<a href="#220" id="220">220</a>
+<a href="#221" id="221">221</a>
+<a href="#222" id="222">222</a>
+<a href="#223" id="223">223</a>
+<a href="#224" id="224">224</a>
+<a href="#225" id="225">225</a>
+<a href="#226" id="226">226</a>
+<a href="#227" id="227">227</a>
+<a href="#228" id="228">228</a>
+<a href="#229" id="229">229</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file is part of Substrate.
 
 // Copyright (C) Parity Technologies (UK) Ltd.
@@ -305,6 +399,10 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 </span><span class="kw">use </span>alloc::vec::Vec;
 <span class="kw">use </span>codec::{Decode, Encode};
 <span class="kw">use </span>sp_core::Hasher;
+<span class="kw">use </span>sp_runtime::DispatchError;
+
+<span class="comment">// Re-export the `proving_trie` types and traits.
+</span><span class="kw">pub use </span>sp_runtime::proving_trie::<span class="kw-2">*</span>;
 
 <span class="doccomment">/// Something that can verify the existence of some data in a given proof.
 </span><span class="kw">pub trait </span>VerifyExistenceProof {
@@ -316,7 +414,7 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 	<span class="doccomment">/// Verify the given `proof`.
 	///
 	/// Ensures that the `proof` was build for `root` and returns the proved data.
-	</span><span class="kw">fn </span>verify_proof(proof: <span class="self">Self</span>::Proof, root: <span class="kw-2">&amp;</span><span class="self">Self</span>::Hash) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;u8&gt;, ()&gt;;
+	</span><span class="kw">fn </span>verify_proof(proof: <span class="self">Self</span>::Proof, root: <span class="kw-2">&amp;</span><span class="self">Self</span>::Hash) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;u8&gt;, DispatchError&gt;;
 }
 
 <span class="doccomment">/// Implements [`VerifyExistenceProof`] using a binary merkle tree.
@@ -329,9 +427,9 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 	<span class="kw">type </span>Proof = binary_merkle_tree::MerkleProof&lt;H::Out, Vec&lt;u8&gt;&gt;;
 	<span class="kw">type </span>Hash = H::Out;
 
-	<span class="kw">fn </span>verify_proof(proof: <span class="self">Self</span>::Proof, root: <span class="kw-2">&amp;</span><span class="self">Self</span>::Hash) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;u8&gt;, ()&gt; {
+	<span class="kw">fn </span>verify_proof(proof: <span class="self">Self</span>::Proof, root: <span class="kw-2">&amp;</span><span class="self">Self</span>::Hash) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;u8&gt;, DispatchError&gt; {
 		<span class="kw">if </span>proof.root != <span class="kw-2">*</span>root {
-			<span class="kw">return </span><span class="prelude-val">Err</span>(());
+			<span class="kw">return </span><span class="prelude-val">Err</span>(TrieError::RootMismatch.into());
 		}
 
 		<span class="kw">if </span>binary_merkle_tree::verify_proof::&lt;H, <span class="kw">_</span>, <span class="kw">_</span>&gt;(
@@ -343,13 +441,25 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 		) {
 			<span class="prelude-val">Ok</span>(proof.leaf)
 		} <span class="kw">else </span>{
-			<span class="prelude-val">Err</span>(())
+			<span class="prelude-val">Err</span>(TrieError::IncompleteProof.into())
 		}
 	}
 }
 
+<span class="kw">impl</span>&lt;H: Hasher&gt; ProofToHashes <span class="kw">for </span>BinaryMerkleTreeProver&lt;H&gt; {
+	<span class="kw">type </span>Proof = binary_merkle_tree::MerkleProof&lt;H::Out, Vec&lt;u8&gt;&gt;;
+
+	<span class="comment">// This base 2 merkle trie includes a `proof` field which is a `Vec&lt;Hash&gt;`.
+	// The length of this vector tells us the depth of the proof, and how many
+	// hashes we need to calculate.
+	</span><span class="kw">fn </span>proof_to_hashes(proof: <span class="kw-2">&amp;</span><span class="self">Self</span>::Proof) -&gt; <span class="prelude-ty">Result</span>&lt;u32, DispatchError&gt; {
+		<span class="kw">let </span>depth = proof.proof.len();
+		<span class="prelude-val">Ok</span>(depth <span class="kw">as </span>u32)
+	}
+}
+
 <span class="doccomment">/// Proof used by [`SixteenPatriciaMerkleTreeProver`] for [`VerifyExistenceProof`].
-</span><span class="attr">#[derive(Encode, Decode)]
+</span><span class="attr">#[derive(Encode, Decode, Clone)]
 </span><span class="kw">pub struct </span>SixteenPatriciaMerkleTreeExistenceProof {
 	<span class="doccomment">/// The key of the value to prove.
 	</span><span class="kw">pub </span>key: Vec&lt;u8&gt;,
@@ -366,21 +476,35 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 	<span class="kw">type </span>Proof = SixteenPatriciaMerkleTreeExistenceProof;
 	<span class="kw">type </span>Hash = H::Out;
 
-	<span class="kw">fn </span>verify_proof(proof: <span class="self">Self</span>::Proof, root: <span class="kw-2">&amp;</span><span class="self">Self</span>::Hash) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;u8&gt;, ()&gt; {
+	<span class="kw">fn </span>verify_proof(proof: <span class="self">Self</span>::Proof, root: <span class="kw-2">&amp;</span><span class="self">Self</span>::Hash) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;u8&gt;, DispatchError&gt; {
 		sp_trie::verify_trie_proof::&lt;sp_trie::LayoutV1&lt;H&gt;, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>&gt;(
 			<span class="kw-2">&amp;</span>root,
 			<span class="kw-2">&amp;</span>proof.proof,
 			[<span class="kw-2">&amp;</span>(<span class="kw-2">&amp;</span>proof.key, <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>proof.value))],
 		)
-		.map_err(drop)
+		.map_err(|err| TrieError::from(err).into())
 		.map(|<span class="kw">_</span>| proof.value)
+	}
+}
+
+<span class="kw">impl</span>&lt;H: Hasher&gt; ProofToHashes <span class="kw">for </span>SixteenPatriciaMerkleTreeProver&lt;H&gt; {
+	<span class="kw">type </span>Proof = SixteenPatriciaMerkleTreeExistenceProof;
+
+	<span class="comment">// This base 16 trie uses a raw proof of `Vec&lt;Vec&lt;u8&gt;`, where the length of the first `Vec`
+	// is the depth of the trie. We can use this to predict the number of hashes.
+	</span><span class="kw">fn </span>proof_to_hashes(proof: <span class="kw-2">&amp;</span><span class="self">Self</span>::Proof) -&gt; <span class="prelude-ty">Result</span>&lt;u32, DispatchError&gt; {
+		<span class="kw">let </span>depth = proof.proof.len();
+		<span class="prelude-val">Ok</span>(depth <span class="kw">as </span>u32)
 	}
 }
 
 <span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>tests {
 	<span class="kw">use super</span>::<span class="kw-2">*</span>;
-	<span class="kw">use </span>sp_runtime::{proving_trie::BasicProvingTrie, traits::BlakeTwo256};
+	<span class="kw">use </span>sp_runtime::{
+		proving_trie::{base16::BasicProvingTrie, ProvingTrie},
+		traits::BlakeTwo256,
+	};
 
 	<span class="attr">#[test]
 	</span><span class="kw">fn </span>verify_binary_merkle_tree_prover_works() {
@@ -398,24 +522,88 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 
 	<span class="attr">#[test]
 	</span><span class="kw">fn </span>verify_sixteen_patricia_merkle_tree_prover_works() {
-		<span class="kw">let </span>trie = BasicProvingTrie::&lt;BlakeTwo256, u32, <span class="kw-2">&amp;</span>[u8]&gt;::generate_for(<span class="macro">vec!</span>[
-			(<span class="number">0u32</span>, <span class="kw-2">&amp;</span><span class="string">b"hey"</span>[..]),
-			(<span class="number">1u32</span>, <span class="kw-2">&amp;</span><span class="string">b"yes"</span>[..]),
+		<span class="kw">let </span>trie = BasicProvingTrie::&lt;BlakeTwo256, u32, <span class="kw">_</span>&gt;::generate_for(<span class="macro">vec!</span>[
+			(<span class="number">0u32</span>, String::from(<span class="string">"hey"</span>)),
+			(<span class="number">1u32</span>, String::from(<span class="string">"yes"</span>)),
 		])
 		.unwrap();
-		<span class="kw">let </span>proof = trie.create_single_value_proof(<span class="number">1u32</span>).unwrap();
+		<span class="kw">let </span>proof = trie.create_proof(<span class="kw-2">&amp;</span><span class="number">1u32</span>).unwrap();
+		<span class="kw">let </span>structured_proof: Vec&lt;Vec&lt;u8&gt;&gt; = Decode::decode(<span class="kw-2">&amp;mut &amp;</span>proof[..]).unwrap();
 		<span class="kw">let </span>root = <span class="kw-2">*</span>trie.root();
 
 		<span class="kw">let </span>proof = SixteenPatriciaMerkleTreeExistenceProof {
 			key: <span class="number">1u32</span>.encode(),
-			value: <span class="string">b"yes"</span>[..].encode(),
-			proof,
+			value: String::from(<span class="string">"yes"</span>).encode(),
+			proof: structured_proof,
 		};
 
 		<span class="macro">assert_eq!</span>(
 			SixteenPatriciaMerkleTreeProver::&lt;BlakeTwo256&gt;::verify_proof(proof, <span class="kw-2">&amp;</span>root).unwrap(),
-			<span class="string">b"yes"</span>[..].encode()
+			String::from(<span class="string">"yes"</span>).encode()
 		);
+	}
+
+	<span class="attr">#[test]
+	</span><span class="kw">fn </span>proof_to_hashes_sixteen() {
+		<span class="kw">let </span><span class="kw-2">mut </span>i: u32 = <span class="number">1</span>;
+
+		<span class="comment">// Compute log base 16 and round up
+		</span><span class="kw">let </span>log16 = |x: u32| -&gt; u32 {
+			<span class="kw">let </span>x_f64 = x <span class="kw">as </span>f64;
+			<span class="kw">let </span>log16_x = (x_f64.ln() / <span class="number">16_f64</span>.ln()).ceil();
+			log16_x <span class="kw">as </span>u32
+		};
+
+		<span class="kw">while </span>i &lt; <span class="number">10_000_000 </span>{
+			<span class="kw">let </span>trie = BasicProvingTrie::&lt;BlakeTwo256, u32, <span class="kw">_</span>&gt;::generate_for(
+				(<span class="number">0</span>..i).map(|i| (i, u128::from(i))),
+			)
+			.unwrap();
+			<span class="kw">let </span>proof = trie.create_proof(<span class="kw-2">&amp;</span><span class="number">0</span>).unwrap();
+			<span class="kw">let </span>structured_proof: Vec&lt;Vec&lt;u8&gt;&gt; = Decode::decode(<span class="kw-2">&amp;mut &amp;</span>proof[..]).unwrap();
+			<span class="kw">let </span>root = <span class="kw-2">*</span>trie.root();
+
+			<span class="kw">let </span>proof = SixteenPatriciaMerkleTreeExistenceProof {
+				key: <span class="number">0u32</span>.encode(),
+				value: <span class="number">0u128</span>.encode(),
+				proof: structured_proof,
+			};
+			<span class="kw">let </span>hashes =
+				SixteenPatriciaMerkleTreeProver::&lt;BlakeTwo256&gt;::proof_to_hashes(<span class="kw-2">&amp;</span>proof).unwrap();
+			<span class="kw">let </span>log16 = log16(i).max(<span class="number">1</span>);
+			<span class="macro">assert_eq!</span>(hashes, log16);
+
+			<span class="macro">assert_eq!</span>(
+				SixteenPatriciaMerkleTreeProver::&lt;BlakeTwo256&gt;::verify_proof(proof.clone(), <span class="kw-2">&amp;</span>root)
+					.unwrap(),
+				proof.value
+			);
+
+			i = i * <span class="number">10</span>;
+		}
+	}
+
+	<span class="attr">#[test]
+	</span><span class="kw">fn </span>proof_to_hashes_binary() {
+		<span class="kw">let </span><span class="kw-2">mut </span>i: u32 = <span class="number">1</span>;
+		<span class="kw">while </span>i &lt; <span class="number">10_000_000 </span>{
+			<span class="kw">let </span>proof = binary_merkle_tree::merkle_proof::&lt;BlakeTwo256, <span class="kw">_</span>, <span class="kw">_</span>&gt;(
+				(<span class="number">0</span>..i).map(|i| u128::from(i).encode()),
+				<span class="number">0</span>,
+			);
+			<span class="kw">let </span>root = proof.root;
+
+			<span class="kw">let </span>hashes = BinaryMerkleTreeProver::&lt;BlakeTwo256&gt;::proof_to_hashes(<span class="kw-2">&amp;</span>proof).unwrap();
+			<span class="kw">let </span>log2 = (i <span class="kw">as </span>f64).log2().ceil() <span class="kw">as </span>u32;
+			<span class="macro">assert_eq!</span>(hashes, log2);
+
+			<span class="macro">assert_eq!</span>(
+				BinaryMerkleTreeProver::&lt;BlakeTwo256&gt;::verify_proof(proof, <span class="kw-2">&amp;</span>root).unwrap(),
+				<span class="number">0u128</span>.encode()
+			);
+
+			i = i * <span class="number">10</span>;
+		}
 	}
 }
 </code></pre></div></section></main><script> mermaid.init({ startOnLoad: true, theme: "dark" }, "pre.language-mermaid > code");</script>
