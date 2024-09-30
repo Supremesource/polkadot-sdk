@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727706538921,
+  "lastUpdate": 1727711471506,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "availability-distribution-regression-bench": [
@@ -27673,6 +27673,60 @@ window.BENCHMARK_DATA = {
           {
             "name": "test-environment",
             "value": 0.009315899206666733,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "65984904+programskillforverification@users.noreply.github.com",
+            "name": "Joseph Zhao",
+            "username": "programskillforverification"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a8d8596fd2dc36aa7c4e1bb63536c30fef2855ea",
+          "message": "Replace lazy_static with LazyLock (#5716)\n\n# Description\n\nclose #5641\n\n---------\n\nCo-authored-by: Bastian Köcher <git@kchr.de>",
+          "timestamp": "2024-09-30T14:15:11Z",
+          "tree_id": "55bcfd578e5eabe1acbd69421a2f59c9d7f933d8",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/a8d8596fd2dc36aa7c4e1bb63536c30fef2855ea"
+        },
+        "date": 1727711446365,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Received from peers",
+            "value": 433.3333333333332,
+            "unit": "KiB"
+          },
+          {
+            "name": "Sent to peers",
+            "value": 18481.666666666653,
+            "unit": "KiB"
+          },
+          {
+            "name": "availability-distribution",
+            "value": 0.01697906342,
+            "unit": "seconds"
+          },
+          {
+            "name": "bitfield-distribution",
+            "value": 0.024153715580000002,
+            "unit": "seconds"
+          },
+          {
+            "name": "availability-store",
+            "value": 0.18226733227999986,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.008830981726666756,
             "unit": "seconds"
           }
         ]
