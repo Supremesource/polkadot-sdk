@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727711439222,
+  "lastUpdate": 1727738020452,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "availability-recovery-regression-bench": [
@@ -22123,6 +22123,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "availability-recovery",
             "value": 11.238876024666665,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "8279d1046cca51a317dec15df5a9b29240545163",
+          "message": "Bump syn from 2.0.77 to 2.0.79 in the known_good_semver group (#5864)\n\nBumps the known_good_semver group with 1 update:\n[syn](https://github.com/dtolnay/syn).\n\nUpdates `syn` from 2.0.77 to 2.0.79\n<details>\n<summary>Release notes</summary>\n<p><em>Sourced from <a\nhref=\"https://github.com/dtolnay/syn/releases\">syn's\nreleases</a>.</em></p>\n<blockquote>\n<h2>2.0.79</h2>\n<ul>\n<li>Fix infinite loop on parsing chained ranges (<a\nhref=\"https://redirect.github.com/dtolnay/syn/issues/1741\">#1741</a>)</li>\n<li>Fix panic in parsing <code>use</code> items containing absolute\npaths (<a\nhref=\"https://redirect.github.com/dtolnay/syn/issues/1742\">#1742</a>)</li>\n</ul>\n<h2>2.0.78</h2>\n<ul>\n<li>Fix infinite loop on chained comparison (<a\nhref=\"https://redirect.github.com/dtolnay/syn/issues/1739\">#1739</a>)</li>\n</ul>\n</blockquote>\n</details>\n<details>\n<summary>Commits</summary>\n<ul>\n<li><a\nhref=\"https://github.com/dtolnay/syn/commit/732e6e39406538aebe34ed5f5803113a48c28602\"><code>732e6e3</code></a>\nRelease 2.0.79</li>\n<li><a\nhref=\"https://github.com/dtolnay/syn/commit/af63396422250a1c7c80e6f12da08ce31ea435af\"><code>af63396</code></a>\nMerge pull request <a\nhref=\"https://redirect.github.com/dtolnay/syn/issues/1742\">#1742</a>\nfrom dtolnay/usecrateroot</li>\n<li><a\nhref=\"https://github.com/dtolnay/syn/commit/31e863233872eb3f4239a25f42030c369c22d72b\"><code>31e8632</code></a>\nFix construction of UseGroup containing crate roots</li>\n<li><a\nhref=\"https://github.com/dtolnay/syn/commit/037861ac3ca6f91aec7f7c20811535488dafaec4\"><code>037861a</code></a>\nMerge pull request <a\nhref=\"https://redirect.github.com/dtolnay/syn/issues/1741\">#1741</a>\nfrom dtolnay/binoploop</li>\n<li><a\nhref=\"https://github.com/dtolnay/syn/commit/8df4dd0fa4c353a2979bd56c34955e9335bb701d\"><code>8df4dd0</code></a>\nForce cursor to advance in parse_expr calls</li>\n<li><a\nhref=\"https://github.com/dtolnay/syn/commit/09d020f5a10b3d3e4d54ec03290f773be91b9cac\"><code>09d020f</code></a>\nRelease 2.0.78</li>\n<li><a\nhref=\"https://github.com/dtolnay/syn/commit/7eaebfbb470fd056ee95ec892fc012ce292e7209\"><code>7eaebfb</code></a>\nMerge pull request <a\nhref=\"https://redirect.github.com/dtolnay/syn/issues/1739\">#1739</a>\nfrom dtolnay/chainedcomparison</li>\n<li><a\nhref=\"https://github.com/dtolnay/syn/commit/b3d2886fc9bbff5eb45995c72beec0463a8cec2a\"><code>b3d2886</code></a>\nFix infinite loop on chained comparison</li>\n<li><a\nhref=\"https://github.com/dtolnay/syn/commit/3f3d0c57ac66b4fa42a3f10209dd1fde29c5ce57\"><code>3f3d0c5</code></a>\nAdd regression test for issue 1738</li>\n<li><a\nhref=\"https://github.com/dtolnay/syn/commit/346efaec55d7a3865a42fcd1007f45a8a7549052\"><code>346efae</code></a>\nTouch up PR 1737</li>\n<li>Additional commits viewable in <a\nhref=\"https://github.com/dtolnay/syn/compare/2.0.77...2.0.79\">compare\nview</a></li>\n</ul>\n</details>\n<br />\n\n\n[![Dependabot compatibility\nscore](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=syn&package-manager=cargo&previous-version=2.0.77&new-version=2.0.79)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)\n\nDependabot will resolve any conflicts with this PR as long as you don't\nalter it yourself. You can also trigger a rebase manually by commenting\n`@dependabot rebase`.\n\n[//]: # (dependabot-automerge-start)\n[//]: # (dependabot-automerge-end)\n\n---\n\n<details>\n<summary>Dependabot commands and options</summary>\n<br />\n\nYou can trigger Dependabot actions by commenting on this PR:\n- `@dependabot rebase` will rebase this PR\n- `@dependabot recreate` will recreate this PR, overwriting any edits\nthat have been made to it\n- `@dependabot merge` will merge this PR after your CI passes on it\n- `@dependabot squash and merge` will squash and merge this PR after\nyour CI passes on it\n- `@dependabot cancel merge` will cancel a previously requested merge\nand block automerging\n- `@dependabot reopen` will reopen this PR if it is closed\n- `@dependabot close` will close this PR and stop Dependabot recreating\nit. You can achieve the same result by closing it manually\n- `@dependabot show <dependency name> ignore conditions` will show all\nof the ignore conditions of the specified dependency\n- `@dependabot ignore <dependency name> major version` will close this\ngroup update PR and stop Dependabot creating any more for the specific\ndependency's major version (unless you unignore this specific\ndependency's major version or upgrade to it yourself)\n- `@dependabot ignore <dependency name> minor version` will close this\ngroup update PR and stop Dependabot creating any more for the specific\ndependency's minor version (unless you unignore this specific\ndependency's minor version or upgrade to it yourself)\n- `@dependabot ignore <dependency name>` will close this group update PR\nand stop Dependabot creating any more for the specific dependency\n(unless you unignore this specific dependency or upgrade to it yourself)\n- `@dependabot unignore <dependency name>` will remove all of the ignore\nconditions of the specified dependency\n- `@dependabot unignore <dependency name> <ignore condition>` will\nremove the ignore condition of the specified dependency and ignore\nconditions\n\n\n</details>\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-09-30T21:19:56Z",
+          "tree_id": "5edd492175c888a6c707085bed47e6a7696b39c0",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/8279d1046cca51a317dec15df5a9b29240545163"
+        },
+        "date": 1727737995467,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Received from peers",
+            "value": 307203,
+            "unit": "KiB"
+          },
+          {
+            "name": "Sent to peers",
+            "value": 1.6666666666666665,
+            "unit": "KiB"
+          },
+          {
+            "name": "availability-recovery",
+            "value": 11.301550415300001,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.2331010206666667,
             "unit": "seconds"
           }
         ]
