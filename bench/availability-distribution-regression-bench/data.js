@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727698913945,
+  "lastUpdate": 1727706538921,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "availability-distribution-regression-bench": [
@@ -27619,6 +27619,60 @@ window.BENCHMARK_DATA = {
           {
             "name": "test-environment",
             "value": 0.009039927526666746,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "egor@parity.io",
+            "name": "Egor_P",
+            "username": "EgorPopelyaev"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9283dc1db4bbc199b0fe3fb7da81eee98013785e",
+          "message": "[Backport] Version bumps and prdocs reordering from stable2409 (#5849)\n\nThis PR backports regular version bumps and prdocs reordering from the\n`stable2409` release branch to `master`\n\n---------\n\nCo-authored-by: Morgan Adamiec <morgan@parity.io>\nCo-authored-by: Bastian Köcher <git@kchr.de>\nCo-authored-by: Nazar Mokrynskyi <nazar@mokrynskyi.com>",
+          "timestamp": "2024-09-30T13:14:49Z",
+          "tree_id": "1f1ebc9f1c29be804ace761dc6fd6cbab3bf90f3",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/9283dc1db4bbc199b0fe3fb7da81eee98013785e"
+        },
+        "date": 1727706513989,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Received from peers",
+            "value": 433.3333333333332,
+            "unit": "KiB"
+          },
+          {
+            "name": "Sent to peers",
+            "value": 18481.666666666653,
+            "unit": "KiB"
+          },
+          {
+            "name": "bitfield-distribution",
+            "value": 0.02410144223333334,
+            "unit": "seconds"
+          },
+          {
+            "name": "availability-distribution",
+            "value": 0.016426712486666665,
+            "unit": "seconds"
+          },
+          {
+            "name": "availability-store",
+            "value": 0.18138524252,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.009315899206666733,
             "unit": "seconds"
           }
         ]
