@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727706507007,
+  "lastUpdate": 1727711439222,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "availability-recovery-regression-bench": [
@@ -22079,6 +22079,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "test-environment",
             "value": 0.23170112059999998,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "65984904+programskillforverification@users.noreply.github.com",
+            "name": "Joseph Zhao",
+            "username": "programskillforverification"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a8d8596fd2dc36aa7c4e1bb63536c30fef2855ea",
+          "message": "Replace lazy_static with LazyLock (#5716)\n\n# Description\n\nclose #5641\n\n---------\n\nCo-authored-by: Bastian Köcher <git@kchr.de>",
+          "timestamp": "2024-09-30T14:15:11Z",
+          "tree_id": "55bcfd578e5eabe1acbd69421a2f59c9d7f933d8",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/a8d8596fd2dc36aa7c4e1bb63536c30fef2855ea"
+        },
+        "date": 1727711413692,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Received from peers",
+            "value": 307203,
+            "unit": "KiB"
+          },
+          {
+            "name": "Sent to peers",
+            "value": 1.6666666666666665,
+            "unit": "KiB"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.23341761220000007,
+            "unit": "seconds"
+          },
+          {
+            "name": "availability-recovery",
+            "value": 11.238876024666665,
             "unit": "seconds"
           }
         ]
