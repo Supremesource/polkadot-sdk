@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727698945414,
+  "lastUpdate": 1727706570352,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "approval-voting-regression-bench": [
@@ -20446,6 +20446,105 @@ window.BENCHMARK_DATA = {
           {
             "name": "approval-voting-parallel/approval-voting-parallel-1",
             "value": 2.39790687063,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "egor@parity.io",
+            "name": "Egor_P",
+            "username": "EgorPopelyaev"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9283dc1db4bbc199b0fe3fb7da81eee98013785e",
+          "message": "[Backport] Version bumps and prdocs reordering from stable2409 (#5849)\n\nThis PR backports regular version bumps and prdocs reordering from the\n`stable2409` release branch to `master`\n\n---------\n\nCo-authored-by: Morgan Adamiec <morgan@parity.io>\nCo-authored-by: Bastian Köcher <git@kchr.de>\nCo-authored-by: Nazar Mokrynskyi <nazar@mokrynskyi.com>",
+          "timestamp": "2024-09-30T13:14:49Z",
+          "tree_id": "1f1ebc9f1c29be804ace761dc6fd6cbab3bf90f3",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/9283dc1db4bbc199b0fe3fb7da81eee98013785e"
+        },
+        "date": 1727706545920,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sent to peers",
+            "value": 63634.54,
+            "unit": "KiB"
+          },
+          {
+            "name": "Received from peers",
+            "value": 52941.8,
+            "unit": "KiB"
+          },
+          {
+            "name": "approval-voting/test-environment",
+            "value": 0.000019462289999999998,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting",
+            "value": 0.000019462289999999998,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-2",
+            "value": 2.4990363552700012,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 3.421198134552109,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-distribution/test-environment",
+            "value": 0.000018634139999999998,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel",
+            "value": 12.49258466661999,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-3",
+            "value": 2.432686092610001,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-1",
+            "value": 2.437896144050002,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-0",
+            "value": 2.4523429797899996,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-db",
+            "value": 2.190705338410001,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-gather-signatures",
+            "value": 0.006049874779999999,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-subsystem",
+            "value": 0.4738678817099875,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-distribution",
+            "value": 0.000018634139999999998,
             "unit": "seconds"
           }
         ]
