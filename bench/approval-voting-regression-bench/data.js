@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727544282396,
+  "lastUpdate": 1727657712665,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "approval-voting-regression-bench": [
@@ -20248,6 +20248,105 @@ window.BENCHMARK_DATA = {
           {
             "name": "approval-voting-parallel/approval-voting-parallel-0",
             "value": 3.5653628379800004,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "shawntabrizi@gmail.com",
+            "name": "Shawn Tabrizi",
+            "username": "shawntabrizi"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "05b5fb2bd4ba587f5c478f39eb82906691d8ab06",
+          "message": "Improve APIs for Tries in Runtime (#5756)\n\nThis is a refactor and improvement from:\nhttps://github.com/paritytech/polkadot-sdk/pull/3881\n\n- `sp_runtime::proving_trie` now exposes a `BasicProvingTrie` for both\n`base2` and `base16`.\n- APIs for `base16` are more focused on single value proofs, also\naligning their APIs with the `base2` trie\n- A `ProvingTrie` trait is included which wraps both the `base2` and\n`base16` trie, and exposes all APIs needed for an end to end scenario.\n- A `ProofToHashes` trait is exposed which can allow us to write proper\nbenchmarks for the merkle trie.\n\n---------\n\nCo-authored-by: Ankan <10196091+Ank4n@users.noreply.github.com>\nCo-authored-by: Adrian Catangiu <adrian@parity.io>",
+          "timestamp": "2024-09-29T23:20:56Z",
+          "tree_id": "dfc981e9dfc185dd58470920785ffcae1d553ea7",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/05b5fb2bd4ba587f5c478f39eb82906691d8ab06"
+        },
+        "date": 1727657688198,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sent to peers",
+            "value": 63665.750000000015,
+            "unit": "KiB"
+          },
+          {
+            "name": "Received from peers",
+            "value": 52943.5,
+            "unit": "KiB"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-3",
+            "value": 3.49313211132,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel",
+            "value": 17.73489720986987,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting",
+            "value": 0.00001294383,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting/test-environment",
+            "value": 0.00001294383,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-2",
+            "value": 3.6652701016900027,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 4.177164213080339,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-distribution",
+            "value": 0.000014727170000000003,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-0",
+            "value": 3.496725553550001,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-subsystem",
+            "value": 0.3844567068199258,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-gather-signatures",
+            "value": 0.00507377942,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-distribution/test-environment",
+            "value": 0.000014727170000000003,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-db",
+            "value": 3.1863126018399415,
+            "unit": "seconds"
+          },
+          {
+            "name": "approval-voting-parallel/approval-voting-parallel-1",
+            "value": 3.5039263552300013,
             "unit": "seconds"
           }
         ]
