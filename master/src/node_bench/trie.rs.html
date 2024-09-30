@@ -518,6 +518,7 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <a href="#368" id="368">368</a>
 <a href="#369" id="369">369</a>
 <a href="#370" id="370">370</a>
+<a href="#371" id="371">371</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file is part of Substrate.
 
 // Copyright (C) Parity Technologies (UK) Ltd.
@@ -540,11 +541,14 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 
 </span><span class="kw">use </span>hash_db::Prefix;
 <span class="kw">use </span>kvdb::KeyValueDB;
-<span class="kw">use </span>lazy_static::lazy_static;
 <span class="kw">use </span>rand::Rng;
 <span class="kw">use </span>sp_state_machine::Backend <span class="kw">as _</span>;
 <span class="kw">use </span>sp_trie::{trie_types::TrieDBMutBuilderV1, TrieMut <span class="kw">as _</span>};
-<span class="kw">use </span>std::{borrow::Cow, collections::HashMap, sync::Arc};
+<span class="kw">use </span>std::{
+	borrow::Cow,
+	collections::HashMap,
+	sync::{Arc, LazyLock},
+};
 
 <span class="kw">use </span>node_primitives::Hash;
 
@@ -577,10 +581,8 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 	</span>Huge,
 }
 
-<span class="macro">lazy_static!</span> {
-	<span class="kw">static </span><span class="kw-2">ref </span>KUSAMA_STATE_DISTRIBUTION: SizePool =
-		SizePool::from_histogram(<span class="kw">crate</span>::state_sizes::KUSAMA_STATE_DISTRIBUTION);
-}
+<span class="kw">static </span>KUSAMA_STATE_DISTRIBUTION: LazyLock&lt;SizePool&gt; =
+	LazyLock::new(|| SizePool::from_histogram(<span class="kw">crate</span>::state_sizes::KUSAMA_STATE_DISTRIBUTION));
 
 <span class="kw">impl </span>DatabaseSize {
 	<span class="doccomment">/// Should be multiple of SAMPLE_SIZE!

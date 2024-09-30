@@ -1792,12 +1792,16 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 
 <span class="kw">pub use </span>array_bytes;
 <span class="kw">pub use </span>codec::{Decode, Encode, EncodeLike, MaxEncodedLen};
-<span class="kw">pub use </span>lazy_static::lazy_static;
 <span class="kw">pub use </span>log;
 <span class="kw">pub use </span>paste;
 <span class="kw">pub use </span>std::{
-	any::type_name, collections::HashMap, error::Error, fmt, marker::PhantomData, ops::Deref,
-	sync::Mutex,
+	any::type_name,
+	collections::HashMap,
+	error::Error,
+	fmt,
+	marker::PhantomData,
+	ops::Deref,
+	sync::{LazyLock, Mutex},
 };
 
 <span class="comment">// Substrate
@@ -2217,10 +2221,8 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 				= <span class="macro-nonterminal">$crate::RefCell::new</span>(<span class="macro-nonterminal">$crate::TestExternalities::new</span>(<span class="macro-nonterminal">$genesis</span>));
 		}
 
-		<span class="macro-nonterminal">$</span><span class="macro">crate::lazy_static!</span> {
-			<span class="kw">pub static </span><span class="kw-2">ref </span><span class="macro-nonterminal">$global_ext</span>: <span class="macro-nonterminal">$crate::Mutex</span>&lt;<span class="macro-nonterminal">$crate::RefCell</span>&lt;<span class="macro-nonterminal">$crate::HashMap</span>&lt;String, <span class="macro-nonterminal">$crate::TestExternalities</span>&gt;&gt;&gt;
-				= <span class="macro-nonterminal">$crate::Mutex::new</span>(<span class="macro-nonterminal">$crate::RefCell::new</span>(<span class="macro-nonterminal">$crate::HashMap::new</span>()));
-		}
+		<span class="kw">pub static </span><span class="macro-nonterminal">$global_ext</span>: <span class="macro-nonterminal">$crate::LazyLock</span>&lt;<span class="macro-nonterminal">$crate::Mutex</span>&lt;<span class="macro-nonterminal">$crate::RefCell</span>&lt;<span class="macro-nonterminal">$crate::HashMap</span>&lt;String, <span class="macro-nonterminal">$crate::TestExternalities</span>&gt;&gt;&gt;&gt;
+			= <span class="macro-nonterminal">$crate::LazyLock::new</span>(|| <span class="macro-nonterminal">$crate::Mutex::new</span>(<span class="macro-nonterminal">$crate::RefCell::new</span>(<span class="macro-nonterminal">$crate::HashMap::new</span>())));
 
 		<span class="kw">impl</span>&lt;<span class="macro-nonterminal">$network</span>: <span class="macro-nonterminal">$crate::Network</span>&gt; <span class="macro-nonterminal">$crate::TestExt </span><span class="kw">for </span><span class="macro-nonterminal">$name</span>&lt;<span class="macro-nonterminal">$network</span>&gt; {
 			<span class="kw">fn </span>build_new_ext(storage: <span class="macro-nonterminal">$crate::Storage</span>) -&gt; <span class="macro-nonterminal">$crate::TestExternalities </span>{
@@ -2252,10 +2254,10 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 					v.take()
 				});
 
-				<span class="comment">// Get TestExternality from lazy_static
+				<span class="comment">// Get TestExternality from LazyLock
 				</span><span class="kw">let </span>global_ext_guard = <span class="macro-nonterminal">$global_ext</span>.lock().unwrap();
 
-				<span class="comment">// Replace TestExternality in lazy_static by TestExternality from thread_local
+				<span class="comment">// Replace TestExternality in LazyLock by TestExternality from thread_local
 				</span>global_ext_guard.deref().borrow_mut().insert(id.to_string(), local_ext);
 			}
 
@@ -2264,10 +2266,10 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 
 				<span class="kw">let </span><span class="kw-2">mut </span>global_ext_unlocked = <span class="bool-val">false</span>;
 
-				<span class="comment">// Keep the mutex unlocked until TesExternality from lazy_static
+				<span class="comment">// Keep the mutex unlocked until TesExternality from LazyLock
 				// has been updated
 				</span><span class="kw">while </span>!global_ext_unlocked {
-					<span class="comment">// Get TesExternality from lazy_static
+					<span class="comment">// Get TesExternality from LazyLock
 					</span><span class="kw">let </span>global_ext_result = <span class="macro-nonterminal">$global_ext</span>.try_lock();
 
 					<span class="kw">if let </span><span class="prelude-val">Ok</span>(global_ext_guard) = global_ext_result {
@@ -2280,10 +2282,10 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 					}
 				}
 
-				<span class="comment">// Now that we know that lazy_static TestExt has been updated, we lock its mutex
+				<span class="comment">// Now that we know that TestExt has been updated, we lock its mutex
 				</span><span class="kw">let </span><span class="kw-2">mut </span>global_ext_guard = <span class="macro-nonterminal">$global_ext</span>.lock().unwrap();
 
-				<span class="comment">// and set TesExternality from lazy_static into TesExternality for local_thread
+				<span class="comment">// and set TesExternality from LazyLock into TesExternality for local_thread
 				</span><span class="kw">let </span>global_ext = global_ext_guard.deref();
 
 				<span class="macro-nonterminal">$local_ext</span>.with(|v| {
@@ -2518,10 +2520,8 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 				= <span class="macro-nonterminal">$crate::RefCell::new</span>(<span class="macro-nonterminal">$crate::TestExternalities::new</span>(<span class="macro-nonterminal">$genesis</span>));
 		}
 
-		<span class="macro-nonterminal">$</span><span class="macro">crate::lazy_static!</span> {
-			<span class="kw">pub static </span><span class="kw-2">ref </span><span class="macro-nonterminal">$global_ext</span>: <span class="macro-nonterminal">$crate::Mutex</span>&lt;<span class="macro-nonterminal">$crate::RefCell</span>&lt;<span class="macro-nonterminal">$crate::HashMap</span>&lt;String, <span class="macro-nonterminal">$crate::TestExternalities</span>&gt;&gt;&gt;
-				= <span class="macro-nonterminal">$crate::Mutex::new</span>(<span class="macro-nonterminal">$crate::RefCell::new</span>(<span class="macro-nonterminal">$crate::HashMap::new</span>()));
-		}
+		<span class="kw">pub static </span><span class="macro-nonterminal">$global_ext</span>: <span class="macro-nonterminal">$crate::LazyLock</span>&lt;<span class="macro-nonterminal">$crate::Mutex</span>&lt;<span class="macro-nonterminal">$crate::RefCell</span>&lt;<span class="macro-nonterminal">$crate::HashMap</span>&lt;String, <span class="macro-nonterminal">$crate::TestExternalities</span>&gt;&gt;&gt;&gt;
+			= <span class="macro-nonterminal">$crate::LazyLock::new</span>(|| <span class="macro-nonterminal">$crate::Mutex::new</span>(<span class="macro-nonterminal">$crate::RefCell::new</span>(<span class="macro-nonterminal">$crate::HashMap::new</span>())));
 
 		<span class="kw">impl</span>&lt;<span class="macro-nonterminal">$network</span>: <span class="macro-nonterminal">$crate::Network</span>&gt; <span class="macro-nonterminal">$crate::TestExt </span><span class="kw">for </span><span class="macro-nonterminal">$name</span>&lt;<span class="macro-nonterminal">$network</span>&gt; {
 			<span class="kw">fn </span>build_new_ext(storage: <span class="macro-nonterminal">$crate::Storage</span>) -&gt; <span class="macro-nonterminal">$crate::TestExternalities </span>{
@@ -2551,10 +2551,10 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 					v.take()
 				});
 
-				<span class="comment">// Get TestExternality from lazy_static
+				<span class="comment">// Get TestExternality from LazyLock
 				</span><span class="kw">let </span>global_ext_guard = <span class="macro-nonterminal">$global_ext</span>.lock().unwrap();
 
-				<span class="comment">// Replace TestExternality in lazy_static by TestExternality from thread_local
+				<span class="comment">// Replace TestExternality in LazyLock by TestExternality from thread_local
 				</span>global_ext_guard.deref().borrow_mut().insert(id.to_string(), local_ext);
 			}
 
@@ -2563,10 +2563,10 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 
 				<span class="kw">let </span><span class="kw-2">mut </span>global_ext_unlocked = <span class="bool-val">false</span>;
 
-				<span class="comment">// Keep the mutex unlocked until TesExternality from lazy_static
+				<span class="comment">// Keep the mutex unlocked until TesExternality from LazyLock
 				// has been updated
 				</span><span class="kw">while </span>!global_ext_unlocked {
-					<span class="comment">// Get TesExternality from lazy_static
+					<span class="comment">// Get TesExternality from LazyLock
 					</span><span class="kw">let </span>global_ext_result = <span class="macro-nonterminal">$global_ext</span>.try_lock();
 
 					<span class="kw">if let </span><span class="prelude-val">Ok</span>(global_ext_guard) = global_ext_result {
@@ -2579,10 +2579,10 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 					}
 				}
 
-				<span class="comment">// Now that we know that lazy_static TestExt has been updated, we lock its mutex
+				<span class="comment">// Now that we know that TestExt has been updated, we lock its mutex
 				</span><span class="kw">let </span><span class="kw-2">mut </span>global_ext_guard = <span class="macro-nonterminal">$global_ext</span>.lock().unwrap();
 
-				<span class="comment">// and set TesExternality from lazy_static into TesExternality for local_thread
+				<span class="comment">// and set TesExternality from LazyLock into TesExternality for local_thread
 				</span><span class="kw">let </span>global_ext = global_ext_guard.deref();
 
 				<span class="macro-nonterminal">$local_ext</span>.with(|v| {

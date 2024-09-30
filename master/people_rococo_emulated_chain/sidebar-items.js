@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":["LOCAL_EXT_PEOPLEROCOCO"],"mod":["genesis"],"struct":["GLOBAL_EXT_PEOPLEROCOCO","PeopleRococo"],"trait":["PeopleRococoParaPallet"]};
+window.SIDEBAR_ITEMS = {"constant":["LOCAL_EXT_PEOPLEROCOCO"],"mod":["genesis"],"static":["GLOBAL_EXT_PEOPLEROCOCO"],"struct":["PeopleRococo"],"trait":["PeopleRococoParaPallet"]};

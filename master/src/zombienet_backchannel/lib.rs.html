@@ -304,9 +304,6 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <a href="#154" id="154">154</a>
 <a href="#155" id="155">155</a>
 <a href="#156" id="156">156</a>
-<a href="#157" id="157">157</a>
-<a href="#158" id="158">158</a>
-<a href="#159" id="159">159</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (C) Parity Technologies (UK) Ltd.
 // This file is part of Polkadot.
 
@@ -330,7 +327,6 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 
 </span><span class="kw">use </span>codec;
 <span class="kw">use </span>futures_util::{SinkExt, StreamExt};
-<span class="kw">use </span>lazy_static::lazy_static;
 <span class="kw">use </span>serde::{Deserialize, Serialize};
 <span class="kw">use </span>std::{env, sync::Mutex};
 <span class="kw">use </span>tokio::sync::broadcast;
@@ -339,9 +335,7 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <span class="kw">mod </span>errors;
 <span class="kw">use </span>errors::BackchannelError;
 
-<span class="macro">lazy_static!</span> {
-	<span class="kw">pub static </span><span class="kw-2">ref </span>ZOMBIENET_BACKCHANNEL: Mutex&lt;<span class="prelude-ty">Option</span>&lt;ZombienetBackchannel&gt;&gt; = Mutex::new(<span class="prelude-val">None</span>);
-}
+<span class="kw">pub static </span>ZOMBIENET_BACKCHANNEL: Mutex&lt;<span class="prelude-ty">Option</span>&lt;ZombienetBackchannel&gt;&gt; = Mutex::new(<span class="prelude-val">None</span>);
 
 <span class="attr">#[derive(Debug)]
 </span><span class="kw">pub struct </span>ZombienetBackchannel {

@@ -316,6 +316,7 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <a href="#166" id="166">166</a>
 <a href="#167" id="167">167</a>
 <a href="#168" id="168">168</a>
+<a href="#169" id="169">169</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (C) Parity Technologies (UK) Ltd.
 // This file is part of Polkadot.
 
@@ -379,11 +380,12 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <span class="kw">use </span>sp_core::traits::SpawnNamed;
 
 <span class="kw">use </span>parking_lot::RwLock;
-<span class="kw">use </span>std::{result, sync::Arc};
+<span class="kw">use </span>std::{
+	result,
+	sync::{Arc, LazyLock},
+};
 
-<span class="macro">lazy_static::lazy_static!</span> {
-	<span class="kw">static </span><span class="kw-2">ref </span>INSTANCE: RwLock&lt;Jaeger&gt; = RwLock::new(Jaeger::None);
-}
+<span class="kw">static </span>INSTANCE: LazyLock&lt;RwLock&lt;Jaeger&gt;&gt; = LazyLock::new(|| RwLock::new(Jaeger::None));
 
 <span class="doccomment">/// Stateful convenience wrapper around [`mick_jaeger`].
 </span><span class="kw">pub enum </span>Jaeger {

@@ -233,8 +233,6 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <a href="#83" id="83">83</a>
 <a href="#84" id="84">84</a>
 <a href="#85" id="85">85</a>
-<a href="#86" id="86">86</a>
-<a href="#87" id="87">87</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file is part of Substrate.
 
 // Copyright (C) Parity Technologies (UK) Ltd.
@@ -254,19 +252,17 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 
 </span><span class="doccomment">//! Contains types to define hardware requirements.
 
-</span><span class="kw">use </span>lazy_static::lazy_static;
-<span class="kw">use </span>sc_sysinfo::Requirements;
+</span><span class="kw">use </span>sc_sysinfo::Requirements;
+<span class="kw">use </span>std::sync::LazyLock;
 
-<span class="macro">lazy_static!</span> {
-	<span class="doccomment">/// The hardware requirements as measured on reference hardware.
-	///
-	/// These values are provided by Parity, however it is possible
-	/// to use your own requirements if you are running a custom chain.
-	</span><span class="kw">pub static </span><span class="kw-2">ref </span>SUBSTRATE_REFERENCE_HARDWARE: Requirements = {
-		<span class="kw">let </span>raw = <span class="macro">include_bytes!</span>(<span class="string">"reference_hardware.json"</span>).as_slice();
-		serde_json::from_slice(raw).expect(<span class="string">"Hardcoded data is known good; qed"</span>)
-	};
-}
+<span class="doccomment">/// The hardware requirements as measured on reference hardware.
+///
+/// These values are provided by Parity, however it is possible
+/// to use your own requirements if you are running a custom chain.
+</span><span class="kw">pub static </span>SUBSTRATE_REFERENCE_HARDWARE: LazyLock&lt;Requirements&gt; = LazyLock::new(|| {
+	<span class="kw">let </span>raw = <span class="macro">include_bytes!</span>(<span class="string">"reference_hardware.json"</span>).as_slice();
+	serde_json::from_slice(raw).expect(<span class="string">"Hardcoded data is known good; qed"</span>)
+});
 
 <span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>tests {

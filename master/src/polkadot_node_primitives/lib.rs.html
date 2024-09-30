@@ -918,7 +918,7 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <span class="doccomment">/// Type of a session window size.
 ///
 /// We are not using `NonZeroU32` here because `expect` and `unwrap` are not yet const, so global
-/// constants of `SessionWindowSize` would require `lazy_static` in that case.
+/// constants of `SessionWindowSize` would require `LazyLock` in that case.
 ///
 /// See: &lt;https://github.com/rust-lang/rust/issues/67441&gt;
 </span><span class="attr">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]

@@ -393,6 +393,10 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <a href="#243" id="243">243</a>
 <a href="#244" id="244">244</a>
 <a href="#245" id="245">245</a>
+<a href="#246" id="246">246</a>
+<a href="#247" id="247">247</a>
+<a href="#248" id="248">248</a>
+<a href="#249" id="249">249</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file is part of Substrate.
 
 // Copyright (C) Parity Technologies (UK) Ltd.
@@ -426,6 +430,7 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 	io::{<span class="self">self</span>, Write},
 	marker::PhantomData,
 	panic::{<span class="self">self</span>, PanicInfo},
+	sync::LazyLock,
 	thread,
 };
 
@@ -523,8 +528,9 @@ This is a bug. Please report it at:
 
 <span class="comment">// NOTE: When making any changes here make sure to also change this function in `sc-tracing`.
 </span><span class="kw">fn </span>strip_control_codes(input: <span class="kw-2">&amp;</span>str) -&gt; std::borrow::Cow&lt;str&gt; {
-	<span class="macro">lazy_static::lazy_static!</span> {
-		<span class="kw">static </span><span class="kw-2">ref </span>RE: Regex = Regex::new(<span class="string">r#"(?x)
+	<span class="kw">static </span>RE: LazyLock&lt;Regex&gt; = LazyLock::new(|| {
+		Regex::new(
+			<span class="string">r#"(?x)
 			\x1b\[[^m]+m|        # VT100 escape codes
 			[
 			  \x00-\x09\x0B-\x1F # ASCII control codes / Unicode C0 control codes, except \n
@@ -533,8 +539,10 @@ This is a bug. Please report it at:
 			  \u{202A}-\u{202E}  # Unicode left-to-right / right-to-left control characters
 			  \u{2066}-\u{2069}  # Same as above
 			]
-		"#</span>).expect(<span class="string">"regex parsing doesn't fail; qed"</span>);
-	}
+		"#</span>,
+		)
+		.expect(<span class="string">"regex parsing doesn't fail; qed"</span>)
+	});
 
 	RE.replace_all(input, <span class="string">""</span>)
 }

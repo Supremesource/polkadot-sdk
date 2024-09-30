@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":["LOCAL_EXT_BRIDGEHUBWESTEND"],"mod":["genesis"],"struct":["BridgeHubWestend","BridgeHubWestendExistentialDeposit","BridgeHubWestendXcmConfig","GLOBAL_EXT_BRIDGEHUBWESTEND"],"trait":["BridgeHubWestendParaPallet"]};
+window.SIDEBAR_ITEMS = {"constant":["LOCAL_EXT_BRIDGEHUBWESTEND"],"mod":["genesis"],"static":["GLOBAL_EXT_BRIDGEHUBWESTEND"],"struct":["BridgeHubWestend","BridgeHubWestendExistentialDeposit","BridgeHubWestendXcmConfig"],"trait":["BridgeHubWestendParaPallet"]};

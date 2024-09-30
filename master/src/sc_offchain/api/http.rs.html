@@ -1278,8 +1278,6 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <a href="#1128" id="1128">1128</a>
 <a href="#1129" id="1129">1129</a>
 <a href="#1130" id="1130">1130</a>
-<a href="#1131" id="1131">1131</a>
-<a href="#1132" id="1132">1132</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file is part of Substrate.
 
 // Copyright (C) Parity Technologies (UK) Ltd.
@@ -2045,14 +2043,12 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 	<span class="kw">use </span><span class="kw">crate</span>::api::timestamp;
 	<span class="kw">use </span>core::convert::Infallible;
 	<span class="kw">use </span>futures::{future, StreamExt};
-	<span class="kw">use </span>lazy_static::lazy_static;
 	<span class="kw">use </span>sp_core::offchain::{Duration, Externalities, HttpError, HttpRequestId, HttpRequestStatus};
+	<span class="kw">use </span>std::sync::LazyLock;
 
-	<span class="comment">// Using lazy_static to avoid spawning lots of different SharedClients,
+	<span class="comment">// Using LazyLock to avoid spawning lots of different SharedClients,
 	// as spawning a SharedClient is CPU-intensive and opens lots of fds.
-	</span><span class="macro">lazy_static!</span> {
-		<span class="kw">static </span><span class="kw-2">ref </span>SHARED_CLIENT: SharedClient = SharedClient::new();
-	}
+	</span><span class="kw">static </span>SHARED_CLIENT: LazyLock&lt;SharedClient&gt; = LazyLock::new(|| SharedClient::new());
 
 	<span class="comment">// Returns an `HttpApi` whose worker is ran in the background, and a `SocketAddr` to an HTTP
 	// server that runs in the background as well.

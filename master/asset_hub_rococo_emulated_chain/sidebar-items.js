@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":["LOCAL_EXT_ASSETHUBROCOCO"],"mod":["genesis"],"struct":["AssetHubRococo","GLOBAL_EXT_ASSETHUBROCOCO"],"trait":["AssetHubRococoParaPallet"]};
+window.SIDEBAR_ITEMS = {"constant":["LOCAL_EXT_ASSETHUBROCOCO"],"mod":["genesis"],"static":["GLOBAL_EXT_ASSETHUBROCOCO"],"struct":["AssetHubRococo"],"trait":["AssetHubRococoParaPallet"]};

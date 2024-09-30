@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["BenchmarkCmd"],"struct":["BasePath","BlockCmd","ExtrinsicCmd","ExtrinsicFactory","MachineCmd","OverheadCmd","PalletCmd","SUBSTRATE_REFERENCE_HARDWARE","StorageCmd"],"trait":["ExtrinsicBuilder"]};
+window.SIDEBAR_ITEMS = {"enum":["BenchmarkCmd"],"static":["SUBSTRATE_REFERENCE_HARDWARE"],"struct":["BasePath","BlockCmd","ExtrinsicCmd","ExtrinsicFactory","MachineCmd","OverheadCmd","PalletCmd","StorageCmd"],"trait":["ExtrinsicBuilder"]};

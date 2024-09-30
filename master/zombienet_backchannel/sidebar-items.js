@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":["ZOMBIENET"],"struct":["BackchannelItem","Broadcaster","ZOMBIENET_BACKCHANNEL","ZombienetBackchannel"]};
+window.SIDEBAR_ITEMS = {"constant":["ZOMBIENET"],"static":["ZOMBIENET_BACKCHANNEL"],"struct":["BackchannelItem","Broadcaster","ZombienetBackchannel"]};
