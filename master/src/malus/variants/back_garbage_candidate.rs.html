@@ -234,8 +234,6 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 <a href="#84" id="84">84</a>
 <a href="#85" id="85">85</a>
 <a href="#86" id="86">86</a>
-<a href="#87" id="87">87</a>
-<a href="#88" id="88">88</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (C) Parity Technologies (UK) Ltd.
 // This file is part of Polkadot.
 
@@ -305,12 +303,10 @@ data-use_system_theme="false"></script><meta name="rustdoc-vars" data-root-path=
 		</span>RuntimeClient: RuntimeApiSubsystemClient + ChainApiBackend + AuxStore + <span class="lifetime">'static</span>,
 		Spawner: <span class="lifetime">'static </span>+ SpawnNamed + Clone + Unpin,
 	{
-		<span class="kw">let </span>spawner = args.spawner.clone();
 		<span class="kw">let </span>validation_filter = ReplaceValidationResult::new(
 			FakeCandidateValidation::BackingAndApprovalValid,
 			FakeCandidateValidationError::InvalidOutputs,
 			f64::from(<span class="self">self</span>.percentage),
-			SpawnGlue(spawner),
 		);
 
 		validator_overseer_builder(

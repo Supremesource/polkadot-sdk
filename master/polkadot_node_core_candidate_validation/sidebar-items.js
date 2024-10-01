@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["find_validation_data"],"struct":["CandidateValidationSubsystem","Config"]};
+window.SIDEBAR_ITEMS = {"struct":["CandidateValidationSubsystem","Config"]};

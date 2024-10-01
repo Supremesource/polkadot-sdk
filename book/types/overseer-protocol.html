@@ -1019,22 +1019,6 @@ const APPROVAL_EXECUTION_TIMEOUT: Duration = 6 seconds;
 /// or `Ok(ValidationResult::Invalid)`.
 #[derive(Debug)]
 pub enum CandidateValidationMessage {
-    /// Validate a candidate with provided parameters using relay-chain state.
-    ///
-    /// This will implicitly attempt to gather the `PersistedValidationData` and `ValidationCode`
-    /// from the runtime API of the chain, based on the `relay_parent`
-    /// of the `CandidateDescriptor`.
-    ///
-    /// This will also perform checking of validation outputs against the acceptance criteria.
-    ///
-    /// If there is no state available which can provide this data or the core for
-    /// the para is not free at the relay-parent, an error is returned.
-    ValidateFromChainState(
-        CandidateDescriptor,
-        Arc&lt;PoV&gt;,
-        Duration, // Execution timeout.
-        oneshot::Sender&lt;Result&lt;ValidationResult, ValidationFailed&gt;&gt;,
-    ),
     /// Validate a candidate with provided, exhaustive parameters for validation.
     ///
     /// Explicitly provide the `PersistedValidationData` and `ValidationCode` so this can do full
@@ -1074,7 +1058,7 @@ pub enum CandidateValidationMessage {
 pub enum PvfCheckerMessage { }
 <span class="boring">}
 </span></code></pre></pre>
-<footer id="last-change">Last change: 2024-09-02, commit: <a href="https://github.com/paritytech/polkadot-sdk/commit/6b854acc69">6b854acc69</a></footer>
+<footer id="last-change">Last change: 2024-10-01, commit: <a href="https://github.com/paritytech/polkadot-sdk/commit/1617852a2f">1617852a2f</a></footer>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
