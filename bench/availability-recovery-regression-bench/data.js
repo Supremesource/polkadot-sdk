@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727738020452,
+  "lastUpdate": 1727793282750,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "availability-recovery-regression-bench": [
@@ -22167,6 +22167,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "test-environment",
             "value": 0.2331010206666667,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "eresav@me.com",
+            "name": "Andrei Eres",
+            "username": "AndreiEres"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1617852a2f1caec796f2b218aecae2facaeacad6",
+          "message": "Remove ValidateFromChainState (#5707)\n\n# Description\n\nThis PR removes the\n`CandidateValidationMessage::ValidateFromChainState`, which was\npreviously used by backing, but is no longer relevant since initial\nasync backing implementation\nhttps://github.com/paritytech/polkadot/pull/5557.\n\nFixes https://github.com/paritytech/polkadot-sdk/issues/5643\n\n## Integration\n\nThis change should not affect downstream projects since\n`ValidateFromChainState` was already unused.\n\n## Review Notes\n\n- Removed all occurrences of `ValidateFromChainState`.\n- Moved utility functions, previously used in candidate validation tests\nand malus, exclusively to candidate validation tests as they are no\nlonger used in malus.\n- Deleted the\n`polkadot_parachain_candidate_validation_validate_from_chain_state`\nmetric from Prometheus.\n- Removed `Spawner` from `ReplaceValidationResult` in malus’\ninterceptors.\n- `fake_validation_error` was only used for `ValidateFromChainState`\nhandling, while other cases directly used\n`InvalidCandidate::InvalidOutputs`. It has been replaced with\n`fake_validation_error`, with a fallback to\n`InvalidCandidate::InvalidOutputs`.\n- Updated overseer’s minimal example to replace `ValidateFromChainState`\nwith `ValidateFromExhaustive`.",
+          "timestamp": "2024-10-01T12:39:01Z",
+          "tree_id": "1c4e709b2a0f579ef2006c097ea26b5a05ebc465",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/1617852a2f1caec796f2b218aecae2facaeacad6"
+        },
+        "date": 1727793257941,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Received from peers",
+            "value": 307203,
+            "unit": "KiB"
+          },
+          {
+            "name": "Sent to peers",
+            "value": 1.6666666666666665,
+            "unit": "KiB"
+          },
+          {
+            "name": "availability-recovery",
+            "value": 11.338248316900003,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.23646362776666668,
             "unit": "seconds"
           }
         ]
